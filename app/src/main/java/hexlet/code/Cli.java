@@ -9,8 +9,7 @@ public class Cli {
         if (scanner.hasNextLine()) {
             String name = scanner.nextLine();
             System.out.println("Hello, " + name + "!");
-        }
-        else {
+        } else {
             scanner.close();
         }
         scanner.close();
