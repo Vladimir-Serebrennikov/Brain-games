@@ -7,10 +7,12 @@ public class App {
 
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
+        System.out.println("2 - Even");
         System.out.println("0 - Exit");
-        System.out.println("Your choice: 1");
-
         int choice = scanner.nextInt();
+        System.out.println("Your choice: " + choice);
+
+
         switch (choice) {
             case 0:
                 System.out.println("Goodbye!");
@@ -22,6 +24,8 @@ public class App {
                 String name = scanner.nextLine();
                 System.out.println("Hello, " + name + "!");
                 break;
+            case 2:
+                Even.parityCheck();
         }
         scanner.close();
 
