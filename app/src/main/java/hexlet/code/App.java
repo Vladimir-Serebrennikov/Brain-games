@@ -26,6 +26,8 @@ public class App {
                 break;
             case 2:
                 Even.parityCheck();
+            default:
+                break;  
         }
         scanner.close();
 
