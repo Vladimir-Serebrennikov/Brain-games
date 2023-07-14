@@ -4,3 +4,4 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/333b378ef27a838a3919/test_coverage)](https://codeclimate.com/github/Vladimir-Serebrennikov/java-project-61/test_coverage)
 https://asciinema.org/connect/1e54a0f4-845e-4c85-bddc-5dac764e0530
 https://asciinema.org/a/qovo80f8qFX31htmsPlNVhGUK
+https://asciinema.org/a/i5etIi8ORkaUTIOumybvqbg2t
