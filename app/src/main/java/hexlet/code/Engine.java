@@ -1,4 +1,6 @@
 package hexlet.code;
+import hexlet.code.games.GCD;
+
 import java.util.Scanner;
 import java.util.Random;
 
@@ -59,7 +61,6 @@ public class Engine {
                 System.out.println("Question: " + number1 + " " + operator + " " + number2);
                 System.out.println("Your answer: ");
                 int userAnswer = scanner.nextInt();
-                String userInput = scanner.nextLine();
                 boolean isResult = result == userAnswer;
                 if (!isResult) {
                     System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was " + "'" + result +
@@ -69,12 +70,23 @@ public class Engine {
                 } else if (isResult) {
                     System.out.println("Correct!");
                     count++;
-                } else if (scanner.hasNextLine()){
-
-                    System.out.println("'" + userInput + "'" + " is wrong answer ;(. Correct answer was " + "'" + result +
+                }
+            } else if(gameName.equals("GSD")) {
+                int number1 = random.nextInt(100);
+                int number2 = random.nextInt(100);
+                int result = GCD.findGSD(number1, number2);
+                System.out.println("Question: " + number1 + " " + number2);
+                System.out.println("Your answer: ");
+                int userAnswer = scanner.nextInt();
+                boolean isResult = result == userAnswer;
+                if (!isResult) {
+                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was " + "'" + result +
                             "'.");
                     System.out.println("Let's try again, " + name + "!");
                     return;
+                } else if (isResult) {
+                    System.out.println("Correct!");
+                    count++;
                 }
             }
 
