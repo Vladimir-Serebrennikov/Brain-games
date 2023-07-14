@@ -3,18 +3,14 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Engine {
-    public static void gameStructure(String gameName) {
+    public static void gameStructure(String gameName, String question) {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name?");
         String name = scanner.nextLine();
         System.out.println("Hello, " + name + "!");
-        if(gameName.equals("Even")) {
-            System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        } else if (gameName.equals("Calc")) {
-            System.out.println("What is the result of the expression?");
-        }
+        System.out.println(question);
 
         int count = 0;
         while (count < 3) {
