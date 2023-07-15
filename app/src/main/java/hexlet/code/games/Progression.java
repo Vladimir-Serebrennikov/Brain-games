@@ -1,35 +1,16 @@
 package hexlet.code.games;
+import hexlet.code.Engine;
+
 import java.util.Random;
 import java.util.Scanner;
 
 public class Progression {
-    public static void main(String[] args) {
 
-        int[] progression = generateProgression();
-        int hiddenIndex = hideNumber(progression);
-
-        System.out.print("Question: ");
-        for (int i = 0; i < progression.length; i++) {
-            if (i == hiddenIndex) {
-                System.out.print(".. ");
-            } else {
-                System.out.print(progression[i] + " ");
-            }
-            
-        }
-
-        System.out.print("\nYour answer: ");
-
-        Scanner scanner = new Scanner(System.in);
-        int userAnswer = scanner.nextInt();
-
-        if (userAnswer == progression[hiddenIndex]) {
-            System.out.println("Congratulations! Your answer is correct!");
-        } else {
-            System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + progression[hiddenIndex] + "'.");
-            System.out.println("Let's try again!");
-        }
+    public static void findProgression() {
+        String question = "What number is missing in the progression?";
+        Engine.gameStructure("Progression", question);
     }
+
 
     public static int[] generateProgression() {
         Random random = new Random();
