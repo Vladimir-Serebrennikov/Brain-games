@@ -1,5 +1,6 @@
 package hexlet.code;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
 import java.util.Scanner;
@@ -111,13 +112,31 @@ public class Engine {
                     System.out.println("Let's try again, " + name + "!");
                     return;
                 }
+            } else if (gameName.equals("Prime")) {
+                int number = random.nextInt(100);
+                System.out.println("Question: " + number);
+                String answer = scanner.nextLine();
+                System.out.println("Your answer: " + answer);
+                boolean isPrime = Prime.isPrimeNumber(number);
+
+                if (isPrime && answer.equals("no") || !isPrime && answer.equals("yes")) {
+                    System.out.println("'yes' is wrong answer ;). Correct answer was 'no'. Let's try again, " + name + "!");
+                    return;
+                } else if (isPrime && answer.equals("yes") || !isPrime && answer.equals("no")) {
+                    System.out.println("Correct!");
+                    count++;
+                } else if (!answer.equals("yes") || !answer.equals("no")) {
+                    System.out.println("'yes' is wrong answer ;). Correct answer was 'no'. Let's try again, " + name + "!");
+                    return;
             }
 
 
         }
-        System.out.println("Congratulations, " + name + "!");
+
 
     }
+        System.out.println("Congratulations, " + name + "!");
 
 
+}
 }
