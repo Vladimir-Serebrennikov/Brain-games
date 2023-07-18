@@ -7,7 +7,7 @@ public class GCD {
         if (b == 0) {
             return a;
         } else {
-            return findGSD(b,a % b);
+            return findGSD(b, a % b);
         }
     }
 

@@ -25,17 +25,18 @@ public class Engine {
                 System.out.println("Your answer: " + answer);
                 boolean isEven = (number % 2 == 0);
                 if (isEven && answer.equals("no") || (!isEven && answer.equals("yes"))) {
-                    System.out.println("'yes' is wrong answer ;). Correct answer was 'no'. Let's try again, " + name + "!");
+                    System.out.println("'yes' is wrong answer ;)."
+                            + " Correct answer was 'no'. Let's try again, " + name + "!");
                     return;
                 } else if (isEven && answer.equals("yes") || (!isEven && answer.equals("no"))) {
                     System.out.println("Correct!");
                     count++;
                 } else if (!answer.equals("yes") || !answer.equals("no")) {
-                    System.out.println("'yes' is wrong answer ;). Correct answer was 'no'. Let's try again, " + name + "!");
+                    System.out.println("'yes' is wrong answer ;)."
+                            + " Correct answer was 'no'. Let's try again, " + name + "!");
                     return;
                 }
-
-            }else if (gameName.equals("Calc")) {
+            } else if (gameName.equals("Calc")) {
                 int number1 = random.nextInt(100);
                 int number2 = random.nextInt(100);
                 int operation = random.nextInt(3);
@@ -65,15 +66,15 @@ public class Engine {
                 int userAnswer = scanner.nextInt();
                 boolean isResult = result == userAnswer;
                 if (!isResult) {
-                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was " + "'" + result +
-                            "'.");
+                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(."
+                            + " Correct answer was " + "'" + result + "'.");
                     System.out.println("Let's try again, " + name + "!");
                     return;
                 } else if (isResult) {
                     System.out.println("Correct!");
                     count++;
                 }
-            } else if(gameName.equals("GSD")) {
+            } else if (gameName.equals("GSD")) {
                 int number1 = random.nextInt(100);
                 int number2 = random.nextInt(100);
                 int result = GCD.findGSD(number1, number2);
@@ -82,15 +83,15 @@ public class Engine {
                 int userAnswer = scanner.nextInt();
                 boolean isResult = result == userAnswer;
                 if (!isResult) {
-                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was " + "'" + result +
-                            "'.");
+                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(."
+                            + " Correct answer was " + "'" + result + "'.");
                     System.out.println("Let's try again, " + name + "!");
                     return;
                 } else if (isResult) {
                     System.out.println("Correct!");
                     count++;
                 }
-            } else if(gameName.equals("Progression")) {
+            } else if (gameName.equals("Progression")) {
                 int[] progression = Progression.generateProgression();
                 int hiddenIndex = Progression.hideNumber(progression);
                 System.out.print("Question: ");
@@ -108,7 +109,8 @@ public class Engine {
                     System.out.println("Correct!");
                     count++;
                 } else {
-                    System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + progression[hiddenIndex] + "'.");
+                    System.out.println("'" + userAnswer + "' is wrong answer ;(."
+                            + " Correct answer was '" + progression[hiddenIndex] + "'.");
                     System.out.println("Let's try again, " + name + "!");
                     return;
                 }
@@ -120,23 +122,25 @@ public class Engine {
                 boolean isPrime = Prime.isPrimeNumber(number);
 
                 if (isPrime && answer.equals("no") || !isPrime && answer.equals("yes")) {
-                    System.out.println("'yes' is wrong answer ;). Correct answer was 'no'. Let's try again, " + name + "!");
+                    System.out.println("'yes' is wrong answer ;)."
+                            + " Correct answer was 'no'. Let's try again, " + name + "!");
                     return;
                 } else if (isPrime && answer.equals("yes") || !isPrime && answer.equals("no")) {
                     System.out.println("Correct!");
                     count++;
                 } else if (!answer.equals("yes") || !answer.equals("no")) {
-                    System.out.println("'yes' is wrong answer ;). Correct answer was 'no'. Let's try again, " + name + "!");
+                    System.out.println("'yes' is wrong answer ;)."
+                            + " Correct answer was 'no'. Let's try again, " + name + "!");
                     return;
+                }
+
+
             }
 
 
         }
-
-
-    }
         System.out.println("Congratulations, " + name + "!");
 
 
-}
+    }
 }
