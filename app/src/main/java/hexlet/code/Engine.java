@@ -17,9 +17,11 @@ public class Engine {
         System.out.println(question);
 
         int count = 0;
-        while (count < 3) {
+        int rounds = 3;
+        int interval = 100;
+        while (count < rounds) {
             if (gameName.equals("Even")) {
-                int number = random.nextInt(100);
+                int number = random.nextInt(interval);
                 System.out.println("Question: " + number);
                 String answer = scanner.nextLine();
                 System.out.println("Your answer: " + answer);
@@ -37,9 +39,10 @@ public class Engine {
                     return;
                 }
             } else if (gameName.equals("Calc")) {
-                int number1 = random.nextInt(100);
-                int number2 = random.nextInt(100);
-                int operation = random.nextInt(3);
+                int number1 = random.nextInt(interval);
+                int number2 = random.nextInt(interval);
+                int expressions = 3;
+                int operation = random.nextInt(expressions);
 
                 char operator;
                 int result;
@@ -75,8 +78,8 @@ public class Engine {
                     count++;
                 }
             } else if (gameName.equals("GSD")) {
-                int number1 = random.nextInt(100);
-                int number2 = random.nextInt(100);
+                int number1 = random.nextInt(interval);
+                int number2 = random.nextInt(interval);
                 int result = GCD.findGSD(number1, number2);
                 System.out.println("Question: " + number1 + " " + number2);
                 System.out.println("Your answer: ");
@@ -115,7 +118,7 @@ public class Engine {
                     return;
                 }
             } else if (gameName.equals("Prime")) {
-                int number = random.nextInt(100);
+                int number = random.nextInt(interval);
                 System.out.println("Question: " + number);
                 String answer = scanner.nextLine();
                 System.out.println("Your answer: " + answer);
