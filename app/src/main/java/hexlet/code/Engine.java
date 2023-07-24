@@ -17,8 +17,8 @@ public class Engine {
         System.out.println(question);
 
         int count = 0;
-        int rounds = 3;
-        int interval = 100;
+        final int rounds = 3;
+        final int interval = 100;
         while (count < rounds) {
             if (gameName.equals("Even")) {
                 int number = random.nextInt(interval);
@@ -41,7 +41,7 @@ public class Engine {
             } else if (gameName.equals("Calc")) {
                 int number1 = random.nextInt(interval);
                 int number2 = random.nextInt(interval);
-                int expressions = 3;
+                final int expressions = 3;
                 int operation = random.nextInt(expressions);
 
                 char operator;

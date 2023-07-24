@@ -10,6 +10,10 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        final int caseThree = 3;
+        final int caseFour = 4;
+        final int caseFive = 5;
+        final int caseSix = 6;
 
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
@@ -37,16 +41,16 @@ public class App {
             case 2:
                 Even.parityCheck();
                 break;
-            case 3:
+            case caseThree:
                 Calc.calculator();
                 break;
-            case 4:
+            case caseFour:
                 GCD.findGSD();
                 break;
-            case 5:
+            case caseFive:
                 Progression.findProgression();
                 break;
-            case 6:
+            case caseSix:
                 Prime.primeChek();
                 break;
             default:

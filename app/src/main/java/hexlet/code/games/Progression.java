@@ -12,13 +12,13 @@ public class Progression {
 
     public static int[] generateProgression() {
         Random random = new Random();
-        int minimumProgressionLength = 6;
-        int maximumProgressionLength = 5;
+        final int minimumProgressionLength = 6;
+        final int maximumProgressionLength = 5;
         int length = random.nextInt(minimumProgressionLength) + maximumProgressionLength;
         int[] progression = new int[length];
-        int seedInterval = 20;
+        final int seedInterval = 20;
         int start = random.nextInt(seedInterval);
-        int randomStep = 5;
+        final int randomStep = 5;
         int step = random.nextInt(randomStep) + 1;
 
         for (int i = 0; i < length; i++) {
