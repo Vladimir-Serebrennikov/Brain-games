@@ -39,19 +39,19 @@ public class App {
                 System.out.println("Hello, " + name + "!");
                 break;
             case 2:
-                Even.parityCheck();
+                Engine.gameStructure("Even", "Answer 'yes' if the number is even, otherwise answer 'no'.");
                 break;
             case caseThree:
-                Calc.calculator();
+                Engine.gameStructure("Calc", "What is the result of the expression?");
                 break;
             case caseFour:
-                GCD.findGSD();
+                Engine.gameStructure("GCD", "Find the greatest common divisor of given numbers.");
                 break;
             case caseFive:
-                Progression.findProgression();
+                Engine.gameStructure("Progression", "What number is missing in the progression?");
                 break;
             case caseSix:
-                Prime.primeChek();
+                Engine.gameStructure("Prime", "Answer 'yes' if given number is prime. Otherwise answer 'no'.");
                 break;
             default:
                 break;
