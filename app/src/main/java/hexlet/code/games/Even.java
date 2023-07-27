@@ -1,18 +1,17 @@
 package hexlet.code.games;
-import hexlet.code.Engine;
 import java.util.Scanner;
 import java.util.Random;
 
-public class Even {
+public final class Even {
 
     private Scanner scanner;
     private Random random;
     private String name;
 
-    public Even (Scanner scanner, String name) {
-        this.scanner = scanner;
+    public Even(Scanner scan, String username) {
+        this.scanner = scan;
         random = new Random();
-        this.name = name;
+        this.name = username;
     }
 
     public boolean startGame(int interval) {

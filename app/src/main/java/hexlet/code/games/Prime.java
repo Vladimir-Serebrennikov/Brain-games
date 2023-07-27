@@ -1,19 +1,16 @@
 package hexlet.code.games;
-
-import hexlet.code.Engine;
-
 import java.util.Random;
 import java.util.Scanner;
-public class Prime {
+public final class Prime {
 
     private Scanner scanner;
     private Random random;
     private String name;
 
-    public Prime (Scanner scanner, String name) {
-        this.scanner = scanner;
+    public Prime(Scanner scan, String username) {
+        this.scanner = scan;
         random = new Random();
-        this.name = name;
+        this.name = username;
     }
     public boolean startGame(int interval) {
         int count = 0;

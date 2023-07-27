@@ -1,23 +1,25 @@
 package hexlet.code.games;
-import hexlet.code.Engine;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Progression {
+public final class Progression {
     private Scanner scanner;
     private Random random;
     private String name;
 
-    public Progression (Scanner scanner, String name) {
-        this.scanner = scanner;
+    public Progression(Scanner scan, String username) {
+        this.scanner = scan;
         random = new Random();
-        this.name = name;
+        this.name = username;
     }
     public boolean startGame(int interval) {
         int count = 0;
         final int rounds = 3;
+        final int progressionLenght = 10;
+        final int step = 5;
+        final int firstNumber = 2;
         while (count < rounds) {
-            int[] progression = Progression.generateProgression(10, 5, 2);
+            int[] progression = Progression.generateProgression(progressionLenght, step, firstNumber);
             int hiddenIndex = Progression.hideNumber(progression);
             System.out.print("Question: ");
             for (int i = 0; i < progression.length; i++) {
@@ -42,7 +44,6 @@ public class Progression {
         return true;
 
                 }
-
     public static int[] generateProgression(int progressionLength, int step, int firstNumber) {
         int[] progression = new int[progressionLength];
         for (int i = 0; i < progressionLength; i++) {
@@ -50,7 +51,7 @@ public class Progression {
         }
         return progression;
     }
-    
+
 
     public static int hideNumber(int[] progression) {
         Random random = new Random();

@@ -1,19 +1,16 @@
 package hexlet.code.games;
-
-import hexlet.code.Engine;
-
 import java.util.Random;
 import java.util.Scanner;
 
-public class GCD {
+public final class GCD {
     private Scanner scanner;
     private Random random;
     private String name;
 
-    public GCD (Scanner scanner, String name) {
-        this.scanner = scanner;
+    public GCD(Scanner scan, String username) {
+        this.scanner = scan;
         random = new Random();
-        this.name = name;
+        this.name = username;
     }
 
     public boolean startGame(int interval) {

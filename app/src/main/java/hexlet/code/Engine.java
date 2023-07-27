@@ -17,23 +17,34 @@ public class Engine {
         String name = scanner.nextLine();
         System.out.println("Hello, " + name + "!");
         System.out.println(question);
+        final int interval = 100;
 
 
         if (gameName.equals("Even")) {
             Even even = new Even(scanner, name);
-            if (!even.startGame(100)) return;
+            if (!even.startGame(interval)) {
+                return;
+            }
         } else if (gameName.equals("Calc")) {
             Calc calc = new Calc(scanner, name);
-            if (!calc.startGame(100)) return;
+            if (!calc.startGame(interval)) {
+                return;
+            }
         } else if (gameName.equals("GCD")) {
             GCD gsd = new GCD(scanner, name);
-            if (!gsd.startGame(100)) return;
+            if (!gsd.startGame(interval)) {
+                return;
+            }
         } else if (gameName.equals("Prime")) {
             Prime prime = new Prime(scanner, name);
-            if (!prime.startGame(100)) return;
+            if (!prime.startGame(interval)) {
+                return;
+            }
         } else if (gameName.equals("Progression")) {
             Progression progression = new Progression(scanner, name);
-            if (!progression.startGame(100)) return;
+            if (!progression.startGame(interval)) {
+                return;
+            }
         }
 
         System.out.println("Congratulations, " + name + "!");
