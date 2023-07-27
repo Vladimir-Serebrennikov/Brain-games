@@ -37,13 +37,13 @@ public final class Progression {
             } else {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(."
                             + " Correct answer was '" + progression[hiddenIndex] + "'.");
-                    System.out.println("Let's try again, " + name + "!");
-                    return false;
+                System.out.println("Let's try again, " + name + "!");
+                return false;
             }
-               }
+        }
         return true;
 
-                }
+    }
     public static int[] generateProgression(int progressionLength, int step, int firstNumber) {
         int[] progression = new int[progressionLength];
         for (int i = 0; i < progressionLength; i++) {

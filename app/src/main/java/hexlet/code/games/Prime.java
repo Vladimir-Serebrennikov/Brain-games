@@ -23,17 +23,17 @@ public final class Prime {
             boolean isPrime = Prime.isPrimeNumber(number);
 
             if (isPrime && answer.equals("no") || !isPrime && answer.equals("yes")) {
-                    System.out.println("'yes' is wrong answer ;)."
-                            + " Correct answer was 'no'. Let's try again, " + name + "!");
-                    return false;
-                } else if (isPrime && answer.equals("yes") || !isPrime && answer.equals("no")) {
-                    System.out.println("Correct!");
-                    count++;
-                } else if (!answer.equals("yes") || !answer.equals("no")) {
-                    System.out.println("'yes' is wrong answer ;)."
-                            + " Correct answer was 'no'. Let's try again, " + name + "!");
-                    return false;
-                }
+                System.out.println("'yes' is wrong answer ;)."
+                        + " Correct answer was 'no'. Let's try again, " + name + "!");
+                return false;
+            } else if (isPrime && answer.equals("yes") || !isPrime && answer.equals("no")) {
+                System.out.println("Correct!");
+                count++;
+            } else if (!answer.equals("yes") || !answer.equals("no")) {
+                System.out.println("'yes' is wrong answer ;)."
+                        + " Correct answer was 'no'. Let's try again, " + name + "!");
+                return false;
+            }
         }
         return true;
     }

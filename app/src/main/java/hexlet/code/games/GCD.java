@@ -25,14 +25,14 @@ public final class GCD {
             int userAnswer = scanner.nextInt();
             boolean isResult = result == userAnswer;
             if (!isResult) {
-                    System.out.println("'" + userAnswer + "'" + " is wrong answer ;(."
-                            + " Correct answer was " + "'" + result + "'.");
-                    System.out.println("Let's try again, " + name + "!");
-                    return false;
-                } else if (isResult) {
-                    System.out.println("Correct!");
-                    count++;
-                }
+                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(."
+                        + " Correct answer was " + "'" + result + "'.");
+                System.out.println("Let's try again, " + name + "!");
+                return false;
+            } else if (isResult) {
+                System.out.println("Correct!");
+                count++;
+            }
         }
         return true;
     }
@@ -43,5 +43,5 @@ public final class GCD {
             return findGSD(b, a % b);
         }
     }
-   }
+}
 
