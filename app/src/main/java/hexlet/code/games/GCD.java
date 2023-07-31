@@ -1,47 +1,37 @@
 package hexlet.code.games;
-import java.util.Random;
-import java.util.Scanner;
 
-public final class GCD {
-    private Scanner scanner;
-    private Random random;
-    private String name;
+import hexlet.code.Engine;
+import hexlet.code.RandomUtils;
 
-    public GCD(Scanner scan, String username) {
-        this.scanner = scan;
-        random = new Random();
-        this.name = username;
+public class GCD {
+    public static final String GCD_RULE = "Find the greatest common divisor of given numbers.";
+    private static final int GCD_LOWER_BORDER = 1;
+
+    public static void startGCDGame() {
+        String[][] questionAnswerPairs = new String[Engine.ROUND_COUNT][];
+
+        for (int i = 0; i < Engine.ROUND_COUNT; i++) {
+            questionAnswerPairs[i] = generateGCDQuestionAndAnswerPair();
+        }
+        Engine.runGame(GCD_RULE, questionAnswerPairs);
     }
 
-    public boolean startGame(int interval) {
-        int count = 0;
-        final int rounds = 3;
-        while (count < rounds) {
-            int number1 = random.nextInt(interval);
-            int number2 = random.nextInt(interval);
-            int result = GCD.findGSD(number1, number2);
-            System.out.println("Question: " + number1 + " " + number2);
-            System.out.println("Your answer: ");
-            int userAnswer = scanner.nextInt();
-            boolean isResult = result == userAnswer;
-            if (!isResult) {
-                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(."
-                        + " Correct answer was " + "'" + result + "'.");
-                System.out.println("Let's try again, " + name + "!");
-                return false;
-            } else if (isResult) {
-                System.out.println("Correct!");
-                count++;
-            }
-        }
-        return true;
+    public static String[] generateGCDQuestionAndAnswerPair() {
+        String[] questionAnswerPair = new String[2];
+        int firstOutputElement = RandomUtils.generateRandomNumber(GCD_LOWER_BORDER,
+                RandomUtils.DEFAULT_UPPER_BORDER);
+        int secondOutputElement = RandomUtils.generateRandomNumber(GCD_LOWER_BORDER,
+                RandomUtils.DEFAULT_UPPER_BORDER);
+
+        questionAnswerPair[0] = firstOutputElement + " " + secondOutputElement;
+        questionAnswerPair[1] = String.valueOf(findGCD(firstOutputElement, secondOutputElement));
+        return questionAnswerPair;
     }
-    public static int findGSD(int a, int b) {
-        if (b == 0) {
-            return a;
-        } else {
-            return findGSD(b, a % b);
+
+    static int findGCD(int firstOutputElement, int secondOutputElement) {
+        if (secondOutputElement == 0) {
+            return firstOutputElement;
         }
+        return findGCD(secondOutputElement, firstOutputElement % secondOutputElement);
     }
 }
-

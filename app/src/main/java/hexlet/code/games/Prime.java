@@ -1,54 +1,41 @@
 package hexlet.code.games;
-import java.util.Random;
-import java.util.Scanner;
-public final class Prime {
 
-    private Scanner scanner;
-    private Random random;
-    private String name;
+import hexlet.code.Engine;
+import hexlet.code.RandomUtils;
 
-    public Prime(Scanner scan, String username) {
-        this.scanner = scan;
-        random = new Random();
-        this.name = username;
-    }
-    public boolean startGame(int interval) {
-        int count = 0;
-        final int rounds = 3;
-        while (count < rounds) {
-            int number = random.nextInt(interval);
-            System.out.println("Question: " + number);
-            String answer = scanner.nextLine();
-            System.out.println("Your answer: " + answer);
-            boolean isPrime = Prime.isPrimeNumber(number);
+public class Prime {
+    public static final String PRIME_RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final int PRIME_UPPER_BORDER = 100;
 
-            if (isPrime && answer.equals("no") || !isPrime && answer.equals("yes")) {
-                System.out.println("'yes' is wrong answer ;)."
-                        + " Correct answer was 'no'. Let's try again, " + name + "!");
-                return false;
-            } else if (isPrime && answer.equals("yes") || !isPrime && answer.equals("no")) {
-                System.out.println("Correct!");
-                count++;
-            } else if (!answer.equals("yes") || !answer.equals("no")) {
-                System.out.println("'yes' is wrong answer ;)."
-                        + " Correct answer was 'no'. Let's try again, " + name + "!");
-                return false;
-            }
+    public static void startPrimeGame() {
+        String[][] questionAnswerPairs = new String[Engine.ROUND_COUNT][];
+
+        for (int i = 0; i < Engine.ROUND_COUNT; i++) {
+            questionAnswerPairs[i] = generatePrimeQuestionAndAnswerPair();
         }
-        return true;
+        Engine.runGame(PRIME_RULE, questionAnswerPairs);
     }
 
-    public static boolean isPrimeNumber(int number) {
-        if (number <= 1) {
+    public static String[] generatePrimeQuestionAndAnswerPair() {
+        String[] questionAnswerPair = new String[2];
+
+        questionAnswerPair[0] = String.valueOf(RandomUtils.
+                generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER, PRIME_UPPER_BORDER));
+        questionAnswerPair[1] = isPrimeNumber(Integer.parseInt(questionAnswerPair[0])) ? "yes" : "no";
+        return questionAnswerPair;
+    }
+
+    public static boolean isPrimeNumber(int inputNumber) {
+        if (inputNumber < 2) {
             return false;
         }
+        int noOneDividerCounts = 0;
 
-        for (int i = 2; i <= Math.sqrt(number); i++) {
-            if (number % i == 0) {
-                return false;
+        for (int i = 2; i <= PRIME_UPPER_BORDER; i++) {
+            if (inputNumber % i == 0) {
+                noOneDividerCounts++;
             }
         }
-
-        return true;
+        return noOneDividerCounts == 1;
     }
 }

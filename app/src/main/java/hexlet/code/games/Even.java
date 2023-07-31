@@ -1,43 +1,30 @@
 package hexlet.code.games;
-import java.util.Scanner;
-import java.util.Random;
 
-public final class Even {
+import hexlet.code.Engine;
+import hexlet.code.RandomUtils;
 
-    private Scanner scanner;
-    private Random random;
-    private String name;
+public class Even {
+    public static final String EVEN_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public Even(Scanner scan, String username) {
-        this.scanner = scan;
-        random = new Random();
-        this.name = username;
-    }
+    public static void startEvenGame() {
+        String[][] questionAnswerPairs = new String[Engine.ROUND_COUNT][];
 
-    public boolean startGame(int interval) {
-        int count = 0;
-        final int rounds = 3;
-        while (count < rounds) {
-            int number = random.nextInt(interval);
-            System.out.println("Question: " + number);
-            String answer = scanner.nextLine();
-            System.out.println("Your answer: " + answer);
-            boolean isEven = (number % 2 == 0);
-            if (isEven && answer.equals("no") || (!isEven && answer.equals("yes"))) {
-                System.out.println("'yes' is wrong answer ;)."
-                        + " Correct answer was 'no'. Let's try again, " + name + "!");
-                return false;
-            } else if (isEven && answer.equals("yes") || (!isEven && answer.equals("no"))) {
-                System.out.println("Correct!");
-                count++;
-            } else if (!answer.equals("yes") || !answer.equals("no")) {
-                System.out.println("'yes' is wrong answer ;)."
-                        + " Correct answer was 'no'. Let's try again, " + name + "!");
-                return false;
-            }
-
+        for (int i = 0; i < Engine.ROUND_COUNT; i++) {
+            questionAnswerPairs[i] = makeEvenQuestionAndAnswerPair();
         }
-        return true;
+        Engine.runGame(EVEN_RULE, questionAnswerPairs);
     }
 
+    public static String[] makeEvenQuestionAndAnswerPair() {
+        String[] questionAnswerPair = new String[2];
+
+        questionAnswerPair[0] = String.valueOf(RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
+                RandomUtils.DEFAULT_UPPER_BORDER));
+        questionAnswerPair[1] = isEvenNumber(Integer.parseInt(questionAnswerPair[0])) ? "yes" : "no";
+        return questionAnswerPair;
+    }
+
+    public static boolean isEvenNumber(int inputNumber) {
+        return inputNumber % 2 == 0;
+    }
 }

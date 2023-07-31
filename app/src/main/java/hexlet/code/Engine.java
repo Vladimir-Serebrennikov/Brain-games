@@ -1,54 +1,37 @@
 package hexlet.code;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Prime;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Calc;
 
 import java.util.Scanner;
-import java.util.Random;
 
 public class Engine {
-    public static void gameStructure(String gameName, String question) {
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
-        System.out.println("Welcome to the Brain Games!");
-        System.out.println("May I have your name?");
-        String name = scanner.nextLine();
-        System.out.println("Hello, " + name + "!");
-        System.out.println(question);
-        final int interval = 100;
+    public static final int ROUND_COUNT = 3;
+    public static final String WELCOME_MESSAGE = "\nWelcome to the Brain Games!\nMay I have your name? ";
+    public static final String ANSWER_REQUEST = "Your answer: ";
+    public static final String IF_WRIGHT_ANSWER_TEXT = "Correct!";
 
+    public static void runGame(String gameRule, String[][] questionsAnswersPairs) {
+        String playerName;
+        Scanner inputScanner = new Scanner(System.in);
 
-        if (gameName.equals("Even")) {
-            Even even = new Even(scanner, name);
-            if (!even.startGame(interval)) {
-                return;
-            }
-        } else if (gameName.equals("Calc")) {
-            Calc calc = new Calc(scanner, name);
-            if (!calc.startGame(interval)) {
-                return;
-            }
-        } else if (gameName.equals("GCD")) {
-            GCD gsd = new GCD(scanner, name);
-            if (!gsd.startGame(interval)) {
-                return;
-            }
-        } else if (gameName.equals("Prime")) {
-            Prime prime = new Prime(scanner, name);
-            if (!prime.startGame(interval)) {
-                return;
-            }
-        } else if (gameName.equals("Progression")) {
-            Progression progression = new Progression(scanner, name);
-            if (!progression.startGame(interval)) {
-                return;
+        System.out.println(WELCOME_MESSAGE);
+        playerName = inputScanner.next();
+        System.out.println("Hello, " + playerName + "!");
+        System.out.println(gameRule);
+
+        for (int i = 0; i < ROUND_COUNT; i++) {
+            System.out.println("Question: " + questionsAnswersPairs[i][0]);
+            System.out.print(ANSWER_REQUEST);
+            String playerAnswer = inputScanner.next();
+
+            if (playerAnswer.equals(questionsAnswersPairs[i][1])) {
+                System.out.println(IF_WRIGHT_ANSWER_TEXT);
+            } else {
+                System.out.println("'" + playerAnswer + "'"
+                        + " is wrong answer ;(. Correct answer was"
+                        + " '" + questionsAnswersPairs[i][1] + "'.");
+                System.out.println("Let's try again, " + playerName + "!");
+                System.exit(0);
             }
         }
-
-        System.out.println("Congratulations, " + name + "!");
-
-
+        System.out.println("Congratulations, " + playerName + "!");
     }
 }
