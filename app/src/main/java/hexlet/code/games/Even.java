@@ -4,6 +4,8 @@ import hexlet.code.Engine;
 import hexlet.code.RandomUtils;
 
 public class Even {
+    public static final int DEFAULT_LOWER_BORDER = 0;
+    public static final int DEFAULT_UPPER_BORDER = 100;
     public static final String EVEN_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     public static void startEvenGame() {
@@ -18,8 +20,8 @@ public class Even {
     public static String[] makeEvenQuestionAndAnswerPair() {
         String[] questionAnswerPair = new String[2];
 
-        questionAnswerPair[0] = String.valueOf(RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
-                RandomUtils.DEFAULT_UPPER_BORDER));
+        questionAnswerPair[0] = String.valueOf(RandomUtils.generateRandomNumber(DEFAULT_LOWER_BORDER,
+                DEFAULT_UPPER_BORDER));
         questionAnswerPair[1] = isEvenNumber(Integer.parseInt(questionAnswerPair[0])) ? "yes" : "no";
         return questionAnswerPair;
     }

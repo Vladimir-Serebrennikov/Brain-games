@@ -4,6 +4,8 @@ import hexlet.code.Engine;
 import hexlet.code.RandomUtils;
 
 public class Progression {
+    public static final int DEFAULT_LOWER_BORDER = 0;
+    public static final int DEFAULT_UPPER_BORDER = 100;
     public static final String PROGRESSION_RULE = "What number is missing in the progression?";
     private static final int PROGRESSION_MIN_SIZE = 5;
     private static final int PROGRESSION_MAX_SIZE = 10;
@@ -14,11 +16,9 @@ public class Progression {
 
         for (int i = 0; i < Engine.ROUND_COUNT; i++) {
             int progressionArrayLength = RandomUtils.generateRandomNumber(PROGRESSION_MIN_SIZE, PROGRESSION_MAX_SIZE);
-            int progressionStep = RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
-                    RandomUtils.DEFAULT_UPPER_BORDER);
+            int progressionStep = RandomUtils.generateRandomNumber(DEFAULT_LOWER_BORDER, DEFAULT_UPPER_BORDER);
             int emptyPlaceNumber = RandomUtils.generateRandomNumber(0, progressionArrayLength - 1);
-            int firstElement = RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
-                    RandomUtils.DEFAULT_UPPER_BORDER);
+            int firstElement = RandomUtils.generateRandomNumber(DEFAULT_LOWER_BORDER, DEFAULT_UPPER_BORDER);
             questionAnswerPairs[i] = makeProgressionQuestionAndAnswerPair(progressionArrayLength,
                     progressionStep, emptyPlaceNumber, firstElement);
         }

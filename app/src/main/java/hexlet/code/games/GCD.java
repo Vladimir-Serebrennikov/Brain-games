@@ -6,6 +6,7 @@ import hexlet.code.RandomUtils;
 public class GCD {
     public static final String GCD_RULE = "Find the greatest common divisor of given numbers.";
     private static final int GCD_LOWER_BORDER = 1;
+    public static final int DEFAULT_UPPER_BORDER = 100;
 
     public static void startGCDGame() {
         String[][] questionAnswerPairs = new String[Engine.ROUND_COUNT][];
@@ -18,10 +19,8 @@ public class GCD {
 
     public static String[] generateGCDQuestionAndAnswerPair() {
         String[] questionAnswerPair = new String[2];
-        int firstOutputElement = RandomUtils.generateRandomNumber(GCD_LOWER_BORDER,
-                RandomUtils.DEFAULT_UPPER_BORDER);
-        int secondOutputElement = RandomUtils.generateRandomNumber(GCD_LOWER_BORDER,
-                RandomUtils.DEFAULT_UPPER_BORDER);
+        int firstOutputElement = RandomUtils.generateRandomNumber(GCD_LOWER_BORDER, DEFAULT_UPPER_BORDER);
+        int secondOutputElement = RandomUtils.generateRandomNumber(GCD_LOWER_BORDER, DEFAULT_UPPER_BORDER);
 
         questionAnswerPair[0] = firstOutputElement + " " + secondOutputElement;
         questionAnswerPair[1] = String.valueOf(findGCD(firstOutputElement, secondOutputElement));
