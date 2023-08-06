@@ -29,11 +29,11 @@ public class App {
     private static void startSelectedGame(String playerInteractionType) {
         switch (playerInteractionType) {
             case "1" -> Cli.showName();
-            case "2" -> Even.startEvenGame();
-            case "3" -> Calc.startCalculatorGame();
-            case "4" -> GCD.startGCDGame();
-            case "5" -> Progression.startProgressionGame();
-            case "6" -> Prime.startPrimeGame();
+            case "2" -> Even.startGame();
+            case "3" -> Calc.startGame();
+            case "4" -> GCD.startGame();
+            case "5" -> Progression.startGame();
+            case "6" -> Prime.startGame();
             case "0" -> System.out.println(CHOSEN_NO_GAMES_TEXT);
             default -> System.out.println(WRONG_INPUT_ERROR);
         }

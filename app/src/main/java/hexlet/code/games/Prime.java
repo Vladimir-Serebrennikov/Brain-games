@@ -8,16 +8,16 @@ public class Prime {
     public static final String PRIME_RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int DEFAULT_UPPER_BORDER = 100;
 
-    public static void startPrimeGame() {
+    public static void startGame() {
         String[][] questionAnswerPairs = new String[Engine.ROUND_COUNT][];
 
         for (int i = 0; i < Engine.ROUND_COUNT; i++) {
-            questionAnswerPairs[i] = generatePrimeQuestionAndAnswerPair();
+            questionAnswerPairs[i] = questionAndAnswerPair();
         }
         Engine.runGame(PRIME_RULE, questionAnswerPairs);
     }
 
-    public static String[] generatePrimeQuestionAndAnswerPair() {
+    public static String[] questionAndAnswerPair() {
         String[] questionAnswerPair = new String[2];
 
         questionAnswerPair[0] = String.valueOf(RandomUtils.

@@ -8,16 +8,16 @@ public class GCD {
     private static final int GCD_LOWER_BORDER = 1;
     public static final int DEFAULT_UPPER_BORDER = 100;
 
-    public static void startGCDGame() {
+    public static void startGame() {
         String[][] questionAnswerPairs = new String[Engine.ROUND_COUNT][];
 
         for (int i = 0; i < Engine.ROUND_COUNT; i++) {
-            questionAnswerPairs[i] = generateGCDQuestionAndAnswerPair();
+            questionAnswerPairs[i] = questionAndAnswerPair();
         }
         Engine.runGame(GCD_RULE, questionAnswerPairs);
     }
 
-    public static String[] generateGCDQuestionAndAnswerPair() {
+    public static String[] questionAndAnswerPair() {
         String[] questionAnswerPair = new String[2];
         int firstOutputElement = RandomUtils.generateRandomNumber(GCD_LOWER_BORDER, DEFAULT_UPPER_BORDER);
         int secondOutputElement = RandomUtils.generateRandomNumber(GCD_LOWER_BORDER, DEFAULT_UPPER_BORDER);

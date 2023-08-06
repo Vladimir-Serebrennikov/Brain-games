@@ -4,55 +4,47 @@ import hexlet.code.Engine;
 import hexlet.code.RandomUtils;
 
 public class Progression {
-    public static final int DEFAULT_LOWER_BORDER = 0;
-    public static final int DEFAULT_UPPER_BORDER = 100;
-    public static final String PROGRESSION_RULE = "What number is missing in the progression?";
-    private static final int PROGRESSION_MIN_SIZE = 5;
-    private static final int PROGRESSION_MAX_SIZE = 10;
-    private static final String EMPTY_PLACE_ELEMENT = "..";
 
-    public static void startProgressionGame() {
-        String[][] questionAnswerPairs = new String[Engine.ROUND_COUNT][];
+    static final int STEP_MAX_VALUE = 10;
+    static final int STEP_MIN_VALUE = 1;
+    static final int FIRST_ELEMENT_MAX_VALUE = 50;
+    static final int FIRST_ELEMENT_MIN_VALUE = 5;
+    static final int MIN_PROGRESSION_SIZE = 5;
+    static final int MAX_PROGRESSION_SIZE = 10;
+    static final String DESCRIPTION = "What number is missing in the progression?";
+
+    public static void startGame() {
+
+
+        int progressionSize = RandomUtils.generateRandomNumber(MIN_PROGRESSION_SIZE, MAX_PROGRESSION_SIZE
+        );
+
+        String[][] questionsAndAnswers = new String[Engine.ROUND_COUNT][Engine.ROUND_COUNT - 1];
+
 
         for (int i = 0; i < Engine.ROUND_COUNT; i++) {
-            int progressionArrayLength = RandomUtils.generateRandomNumber(PROGRESSION_MIN_SIZE, PROGRESSION_MAX_SIZE);
-            int progressionStep = RandomUtils.generateRandomNumber(DEFAULT_LOWER_BORDER, DEFAULT_UPPER_BORDER);
-            int emptyPlaceNumber = RandomUtils.generateRandomNumber(0, progressionArrayLength - 1);
-            int firstElement = RandomUtils.generateRandomNumber(DEFAULT_LOWER_BORDER, DEFAULT_UPPER_BORDER);
-            questionAnswerPairs[i] = makeProgressionQuestionAndAnswerPair(progressionArrayLength,
-                    progressionStep, emptyPlaceNumber, firstElement);
+
+            int first = RandomUtils.generateRandomNumber(FIRST_ELEMENT_MIN_VALUE, FIRST_ELEMENT_MAX_VALUE);
+            int step = RandomUtils.generateRandomNumber(STEP_MIN_VALUE, STEP_MAX_VALUE);
+            int hiddenMemberIndex = RandomUtils.generateRandomNumber(0, progressionSize - 1);
+
+            String[] progression = makeProgression(first, progressionSize, step);
+            String answer = progression[hiddenMemberIndex];
+            questionsAndAnswers[i][1] = answer;
+            progression[hiddenMemberIndex] = "..";
+            String question = String.join(" ", progression);
+            questionsAndAnswers[i][0] = question;
+
         }
-        Engine.runGame(PROGRESSION_RULE, questionAnswerPairs);
+        Engine.runGame(DESCRIPTION, questionsAndAnswers);
     }
 
-    public static String[] makeProgressionQuestionAndAnswerPair(int progressionArrayLength,
-                                                                int progressionStep,
-                                                                int emptyPlaceNumber, int firstElement) {
-        String[] questionAnswerPair = new String[2];
-        int[] intRoundProgression = formProgression(progressionArrayLength, progressionStep, firstElement);
-        questionAnswerPair[1] = String.valueOf(intRoundProgression[emptyPlaceNumber]);
-        StringBuilder intToStringRoundProgression = new StringBuilder(progressionArrayLength);
-
-        for (int i = 0; i < progressionArrayLength; i++) {
-            if (i == emptyPlaceNumber) {
-                intToStringRoundProgression.append(EMPTY_PLACE_ELEMENT);
-            } else {
-                intToStringRoundProgression.append(intRoundProgression[i]);
-            }
-            intToStringRoundProgression.append(" ");
+    public static String[] makeProgression(int startElement, int progressionSize, int progressionStep) {
+        String[] array = new String[progressionSize];
+        for (int i = 0; i < progressionSize; i++) {
+            array[i] = String.valueOf(startElement);
+            startElement += progressionStep;
         }
-        questionAnswerPair[0] = intToStringRoundProgression.toString();
-        return questionAnswerPair;
-    }
-
-    public static int[] formProgression(int progressionArrayLength, int progressionStep, int firstElement) {
-        int[] intProgressionArray = new int[progressionArrayLength];
-        int insertElement = firstElement;
-
-        for (int i = 0; i < progressionArrayLength; i++) {
-            intProgressionArray[i] = insertElement;
-            insertElement = insertElement + progressionStep;
-        }
-        return intProgressionArray;
+        return array;
     }
 }
