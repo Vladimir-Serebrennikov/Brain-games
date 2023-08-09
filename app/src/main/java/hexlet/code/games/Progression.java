@@ -28,21 +28,26 @@ public class Progression {
             int step = RandomUtils.generateRandomNumber(STEP_MIN_VALUE, STEP_MAX_VALUE);
             int hiddenMemberIndex = RandomUtils.generateRandomNumber(0, progressionSize - 1);
 
-            String[] progression = makeProgression(first, progressionSize, step);
-            String answer = progression[hiddenMemberIndex];
+            int[] progression = makeProgression(first, progressionSize, step);
+            String[] stringProgression = new String[progression.length];
+            for (int j = 0; j < progression.length; j++) {
+                stringProgression[j] = String.valueOf(progression[j]);
+            }
+            
+            String answer = stringProgression[hiddenMemberIndex];
             questionsAndAnswers[i][1] = answer;
-            progression[hiddenMemberIndex] = "..";
-            String question = String.join(" ", progression);
+            stringProgression[hiddenMemberIndex] = "..";
+            String question = String.join(" ", stringProgression);
             questionsAndAnswers[i][0] = question;
 
         }
         Engine.runGame(DESCRIPTION, questionsAndAnswers);
     }
 
-    public static String[] makeProgression(int startElement, int progressionSize, int progressionStep) {
-        String[] array = new String[progressionSize];
+    public static int[] makeProgression(int startElement, int progressionSize, int progressionStep) {
+        int[] array = new int[progressionSize];
         for (int i = 0; i < progressionSize; i++) {
-            array[i] = String.valueOf(startElement);
+            array[i] = startElement;
             startElement += progressionStep;
         }
         return array;
