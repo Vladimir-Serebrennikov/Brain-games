@@ -33,7 +33,6 @@ public class Progression {
             for (int j = 0; j < progression.length; j++) {
                 stringProgression[j] = String.valueOf(progression[j]);
             }
-            
             String answer = stringProgression[hiddenMemberIndex];
             questionsAndAnswers[i][1] = answer;
             stringProgression[hiddenMemberIndex] = "..";
