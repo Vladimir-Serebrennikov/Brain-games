@@ -12,8 +12,13 @@ Games:
 <br/>- Definition of a prime number.
 
 ## Example
+### Even
 [![asciicast](https://asciinema.org/a/iMdCzBV5jaUznrvngM9nmRQok.svg)](https://asciinema.org/a/iMdCzBV5jaUznrvngM9nmRQok)
+### Calc
 [![asciicast](https://asciinema.org/a/RQHWpWEm23II5vh09ewMPTeNV.svg)](https://asciinema.org/a/RQHWpWEm23II5vh09ewMPTeNV)
+### GCD
 [![asciicast](https://asciinema.org/a/ZeAtud0k0ttJsGzj8c5d7Rlo0.svg)](https://asciinema.org/a/ZeAtud0k0ttJsGzj8c5d7Rlo0)
+### Progression
 [![asciicast](https://asciinema.org/a/Ayfj2cr2NPo1F7MDTILdzZlxM.svg)](https://asciinema.org/a/Ayfj2cr2NPo1F7MDTILdzZlxM)
+### Prime
 [![asciicast](https://asciinema.org/a/PVgEtmd9GoPOKjriN7pljFjfQ.svg)](https://asciinema.org/a/PVgEtmd9GoPOKjriN7pljFjfQ)
