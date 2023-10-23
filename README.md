@@ -22,3 +22,27 @@ Games:
 [![asciicast](https://asciinema.org/a/Ayfj2cr2NPo1F7MDTILdzZlxM.svg)](https://asciinema.org/a/Ayfj2cr2NPo1F7MDTILdzZlxM)
 ### Prime
 [![asciicast](https://asciinema.org/a/PVgEtmd9GoPOKjriN7pljFjfQ.svg)](https://asciinema.org/a/PVgEtmd9GoPOKjriN7pljFjfQ)
+
+## Build
+
+```bash
+make build
+```
+
+## Install
+
+```bash
+make install
+```
+
+## Run
+
+```bash
+make run-dist
+```
+
+## Clean
+
+```bash
+make clean
+```
